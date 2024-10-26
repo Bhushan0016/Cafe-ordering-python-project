@@ -1,0 +1,63 @@
+# Greeting message
+print("Welcome to Vintage Corner Cafe!!!")
+
+# Define the menu with item names and prices
+menu = {
+    '1': ('Cold Coffee', 50),
+    '2': ('Almond Coffee', 80),
+    '3': ('Black Coffee', 70),
+    '4': ('Burger', 120),
+    '5': ('Vegan Cake', 100),
+    '6': ('Veg Sandwich', 90),
+    '7': ('Pizza', 200)
+}
+print("Here is the menu,Plz order!")
+
+#Display of the menu card
+print("1.Cold Coffee: Rs 50\n"\
+      "2.Almond Coffee: Rs 80\n"\
+      "3.Black Coffee: Rs 70\n"\
+      "4.Burger: Rs 120\n"\
+      "5.Vegan Cake: Rs 100\n"\
+      "6.Veg Sandwich: Rs 90\n"\
+      "7.Pizza: Rs 200")
+
+total_price = 0  # Initialize the total price
+orders = []  # List to store the items ordered by the user
+
+# Start a loop to take orders until the user decides to stop
+while True:
+    print("Choose the item number you want to order (1, 2, 3, 4, 5, 6, 7):")
+    choice = input()  # Get user's choice
+
+    # Check if the chosen number exists in the menu
+    if choice in menu:
+        item_name, item_price = menu[choice]  # Get item name and price
+
+        # Ask for quantity
+        quantity = int(input(f"How many {item_name} would you like to order? "))
+        orders.append((item_name, quantity))  # Add the item and quantity to the orders list
+
+        # Update the total price
+        total_price += item_price * quantity
+
+        print(f"Order of {quantity} {item_name}(s) added.")
+    else:
+        print("Invalid choice. Please select a valid item number.")
+
+    # Ask if the user wants to add more items
+    another_order = input("Do you want to order anything else? (Yes/No): ").strip().lower()
+    if another_order == 'no':
+        break
+
+# Print the summary of orders and total price
+print("\nYour orders:")
+for item, quantity in orders:
+    print(f"- {quantity} x {item}")
+
+print(f"The total price to pay is: {total_price}")
+print("Thank you for dining with us at Vintage Corner Cafe! We hope to see you again soon !!!")
+
+
+
+
